@@ -3,26 +3,38 @@
 using namespace std;
 
 namespace family{
-    class Node{
+    struct Node{
 
-        private:
         string name;
         Node* mother;
         Node* father;
         int rank;
+        string relation;
+        int gender;
 
-        public:
-        Node(string name):name(name), mother(nullptr), father(nullptr), rank(0) {}
-
+        Node(string name){//:name(name), mother(nullptr), father(nullptr), rank(0), relation("") {}
+        this->name = name;
+        mother = nullptr;
+        father = nullptr;
+        rank = 0;
+        relation = "me";
+        gender = 0;
+        }
     };
 
     class Tree{
-
-        private:
-        Node root;
-
+        
         public:
-        Tree(string name):root(Node(name)){}
+        Node* root;
+
+    public:
+        Tree(string name){
+            if (name == ""){
+                throw("invalid input");
+            }
+            root = new Node(name);
+        } 
+
         ~Tree();
 
         Tree& addFather(string child, string father);
@@ -31,6 +43,9 @@ namespace family{
         string find(string);
         void display();
         void remove(string person);
+        Node* searchNode (Node* root, string name);
+        Node* searchNodeByRelation (Node* root, string re);
+        void destroyTree(Node* root);
     };
 
 

@@ -46,7 +46,7 @@ TEST_CASE("test relations"){
     CHECK_NOTHROW(root.addMother("shoshi", "michal"));
     CHECK(root.relation("haim") == "father");
     CHECK(root.relation("roti") == "mother");
-    CHECK(root.relation("yakov") == "grandfather");
+    CHECK(root.relation("yaakov") == "grandfather");
     CHECK(root.relation("naomi") == "grandmother");
     CHECK(root.relation("eyal") == "grandfather");
     CHECK(root.relation("shoshi") == "grandmother");
@@ -56,8 +56,8 @@ TEST_CASE("test relations"){
     CHECK(root.relation("orna") == "great-grandmother");
     CHECK(root.relation("albert") == "great-grandfather");
     CHECK(root.relation("orit") == "great-grandmother");
-    CHECK(root.relation("asaf") == "great-great-grandfather");
-    CHECK(root.relation("michal") == "great-great-grandmother");
+    CHECK(root.relation("asaf") == "great-grandfather");
+    CHECK(root.relation("michal") == "great-grandmother");
 
     CHECK(root.relation("moshe") == "unrelated");
     CHECK(root.relation("shani") == "unrelated");
@@ -132,17 +132,17 @@ TEST_CASE("remove than relation"){
     root.remove("yaakov");
     root.remove("roti");
     root.remove("haim");
-    CHECK(root.relation("albert") == "unralated");
-    CHECK(root.relation("kobi") == "unralated");
-    CHECK(root.relation("orna") == "unralated");
-    CHECK(root.relation("keren") == "unralated");
-    CHECK(root.relation("yosi") == "unralated");
-    CHECK(root.relation("shoshi") == "unralated");
-    CHECK(root.relation("eyal") == "unralated");
-    CHECK(root.relation("naomi") == "unralated");
-    CHECK(root.relation("yaakov") == "unralated");
-    CHECK(root.relation("roti") == "unralated");
-    CHECK(root.relation("haim") == "unralated");
+    CHECK(root.relation("albert") == "unrelated");
+    CHECK(root.relation("kobi") == "unrelated");
+    CHECK(root.relation("orna") == "unrelated");
+    CHECK(root.relation("keren") == "unrelated");
+    CHECK(root.relation("yosi") == "unrelated");
+    CHECK(root.relation("shoshi") == "unrelated");
+    CHECK(root.relation("eyal") == "unrelated");
+    CHECK(root.relation("naomi") == "unrelated");
+    CHECK(root.relation("yaakov") == "unrelated");
+    CHECK(root.relation("roti") == "unrelated");
+    CHECK(root.relation("haim") == "unrelated");
 }   
 
 
