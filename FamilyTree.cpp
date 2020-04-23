@@ -92,8 +92,12 @@ using namespace family;
     {
 
     }
+    
     void Tree::remove(string person)
-    {
+    {   
+        if (this->root->name == person){
+            throw("you can not delet the root");
+        }
         Node* temp = this->searchNode(this->root,person);
         if (temp == nullptr){
             throw("this relation does not exist");
@@ -135,17 +139,6 @@ using namespace family;
         }
         return temp;
         
-        // if (root->name != name) {
-        //     cout << root->name << ", " << root->father->name  << endl;
-        //     if (root->father != nullptr){
-        //         cout << "f ch" << endl;
-        //         searchNode(root->father, name);
-        //     }
-        //     if (root->mother != nullptr){
-        //         searchNode(root->mother, name);
-        //     }
-        // }
-        // return root;
     }
     
     Node* Tree::searchNodeByRelation(Node* root, string re) {
