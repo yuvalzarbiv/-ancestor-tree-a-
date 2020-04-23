@@ -87,12 +87,30 @@ using namespace family;
         }
       else return temp->name;
     }
+    
+
+    void printtree(Node* root){
+
+        if (!root) return;
+
+        printtree(root->mother);
+
+        for (int i = 0; i < root->rank; i++){
+             cout << "        ";
+        }
+
+        cout << root->name << "\n\n";
+
+        printtree(root->father);
+
+    }
 
     void Tree::display()
     {
-
+        printtree(this->root);
     }
     
+
     void Tree::remove(string person)
     {   
         if (this->root->name == person){
@@ -100,9 +118,10 @@ using namespace family;
         }
         Node* temp = this->searchNode(this->root,person);
         if (temp == nullptr){
-            throw("this relation does not exist");
+            throw("this person does not exist");
         }
         else{
+            
             destroyTree(temp);
         }
 
